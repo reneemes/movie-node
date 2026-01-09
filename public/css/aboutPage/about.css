@@ -6,8 +6,11 @@ body {
   min-height: 100vh;
 }
 
-main {
+.about {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header {
@@ -57,4 +60,36 @@ main {
 }
 .footer__links a {
   color: black;
+}
+
+.about-info {
+  text-align: center;
+  max-width: 70%;
+}
+.about-info__title {
+  font-size: 2.5rem;
+  color: #163420;
+}
+
+.about-faq {
+  max-width: 70%;
+}
+.about-faq__title {
+  text-align: center;
+  color: #163420;
+  font-size: 1.75rem;
+}
+.about-faq__question {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.about-faq__body {
+  margin-bottom: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: baseline;
+  }
 }/*# sourceMappingURL=about.css.map */

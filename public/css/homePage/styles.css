@@ -14,6 +14,7 @@ body {
   align-items: center;
 }
 .movies__title {
+  text-align: center;
   font-size: 2.5rem;
   color: #163420;
 }
@@ -73,6 +74,7 @@ body {
   align-items: center;
 }
 .search__title {
+  text-align: center;
   font-size: 2rem;
   margin: 0;
 }
@@ -175,4 +177,11 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: baseline;
+  }
 }/*# sourceMappingURL=styles.css.map */
