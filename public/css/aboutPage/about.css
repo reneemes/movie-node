@@ -73,6 +73,7 @@ body {
 
 .about-faq {
   max-width: 70%;
+  margin-bottom: 40px;
 }
 .about-faq__title {
   text-align: center;

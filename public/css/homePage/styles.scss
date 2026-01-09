@@ -1,6 +1,5 @@
 $primary-color: #8A1C23;
 $secondary-color: #163420;
-// $cream-color: #F0F2D8;
 $cream-color: #f1f2ec;
 $light-green-color: #85B79D;
 $bright-red-color: #DC3B44;
@@ -138,9 +137,7 @@ body {
   }
   
   &__wrapper {
-    
     display: flex;
-    // flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     gap: 16px;
@@ -151,9 +148,7 @@ body {
   text-align: center;
   position: relative;
   width: 95%;
-  // margin: 40px 0 40px 20px;
   margin: 40px;
-  // padding: 20px;
 
   &__title {
     font-size: 1.75rem;
@@ -193,7 +188,6 @@ body {
 
 .movie-card {
   border-radius: 8px 8px 0 0;
-  // min-width: 200px;
   width: 200px;
   flex: 0 0 auto;
   overflow: hidden;
@@ -214,7 +208,6 @@ body {
     text-shadow: 1px 1px 4px black;
     margin: 0;
     padding: 10px;
-    // width: 200px;
 
     white-space: nowrap;
     overflow: hidden;
