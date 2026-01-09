@@ -43,7 +43,23 @@ function renderSearchResults(movies) {
   resultsTitle.textContent = `Movies Similar to ${movies.title}`;
   
   movies.results.forEach(movie => {
-    
+    const card = document.createElement('div');
+    card.className = 'movie-card';
+
+    const title = document.createElement('h3');
+    title.textContent = movie.title;
+    title.className = 'movie-card__title';
+
+    const img = document.createElement('img');
+    img.className = 'movie-card__img';
+
+    img.src = movie.poster_path
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+      : '/img/placeholder.png';
+    img.alt = movie.title;
+
+    card.append(img, title);
+    resultsBox.appendChild(card);
   })
 }
 
@@ -72,7 +88,7 @@ function renderPopularMovies(movies) {
 }
 
 // Scroll buttons
-const scrollAmount = 300; // pixels per click
+const scrollAmount = 500; // pixels per click
 prevBtn?.addEventListener('click', () => {
   wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
 });

@@ -1,4 +1,5 @@
 body {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   font-family: "Roboto Condensed", sans-serif;
@@ -86,6 +87,9 @@ body {
   color: #8A1C23;
   padding: 10px;
 }
+.search-form__input {
+  font-weight: 600;
+}
 .search-form__btn {
   background-color: #8A1C23;
   color: white;
@@ -94,9 +98,30 @@ body {
   background-color: #DC3B44;
 }
 
-.popular {
-  position: relative;
+.results {
+  text-align: center;
   width: 100%;
+}
+.results__title {
+  font-size: 1.75rem;
+  color: #163420;
+}
+.results__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.popular {
+  text-align: center;
+  position: relative;
+  width: 95%;
+  margin: 40px;
+}
+.popular__title {
+  font-size: 1.75rem;
+  color: #163420;
 }
 .popular__posters-wrapper {
   overflow-x: hidden;
@@ -127,7 +152,7 @@ body {
 
 .movie-card {
   border-radius: 8px 8px 0 0;
-  min-width: 200px;
+  width: 200px;
   flex: 0 0 auto;
   overflow: hidden;
   position: relative;
@@ -146,7 +171,6 @@ body {
   text-shadow: 1px 1px 4px black;
   margin: 0;
   padding: 10px;
-  width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
