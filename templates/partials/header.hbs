@@ -1,9 +1,12 @@
-<header>
-  <h1>{{title}}</h1>
+<header class="header">
+  <h1 class="header__title">{{title}}</h1>
 
-  <nav>
-    <a href="/">Movies</a>
-    <a href="/about">About</a>
-    <a href="/help">Help</a>
+  <nav class="header__nav">
+    <a href="/" class="{{isActive activePage '/'}}">
+      Movies
+    </a>
+    <a href="/about" class="{{isActive activePage '/about'}}">
+      About
+    </a>
   </nav>
 </header>

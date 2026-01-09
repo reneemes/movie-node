@@ -17,10 +17,19 @@ app.set('view engine', 'hbs');
 app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 
+hbs.registerHelper('isActive', (currentPath, linkPath) => {
+  return currentPath === linkPath ? 'active' : '';
+});
+
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
-app.get('', (req, res) =>{
+app.use((req, res, next) => {
+  res.locals.activePage = req.path;
+  next();
+});
+
+app.get('', (req, res) => {
   res.render('index', {
     title: 'Rancid Tomatillos',
     name: 'Renee Messersmith'
@@ -28,7 +37,7 @@ app.get('', (req, res) =>{
   
 });
 
-app.get('/movies', (req, res) =>{
+app.get('/movies', (req, res) => {
   const { title } = req.query;
   
   if (!title) {
@@ -54,7 +63,35 @@ app.get('/movies', (req, res) =>{
       });
     })
   });
+});
 
+app.get('/movies/popular', (req, res) => {
+  movieService.getPopularMovies((error, popularMovies) => {
+    if (error) {
+      return res.status(500).send({error});
+    }
+
+    res.send(popularMovies);
+  })
+});
+
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'Rancid Tomatillos',
+    name: 'Renee Messersmith'
+  });
+});
+
+// app.get('/help', (req, res) =>{
+//   res.render('index', {
+//     title: 'Rancid Tomatillos',
+//     name: 'Renee Messersmith'
+//   });
+
+// });
+
+app.use((req, res, next) =>{
+  res.status(404).send('Page not found.');
 });
 
 app.listen(port, () => {

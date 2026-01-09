@@ -35,7 +35,26 @@ const getSimilarMovies = (movieId, callback) => {
   })
 }
 
+const getPopularMovies = (callback) => {
+  const url = `${TMDB_BASE_URL}/movie/popular`;
+
+  request({url, headers, json: true}, (error, response) => {
+    if (error) {
+      return callback('Unable to connect to TMDB', undefined);
+    } else if (!response?.body?.results?.length) {
+      return callback('Popular movies not found', undefined);
+    } else {
+      console.log(response.body.results)
+      callback(undefined, response.body.results);
+    }
+  })
+
+//   // https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
+//   // http://image.tmdb.org/t/p/original/
+}
+
 module.exports = {
   getMovieId,
-  getSimilarMovies
+  getSimilarMovies,
+  getPopularMovies
 };
