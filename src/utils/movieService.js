@@ -32,11 +32,11 @@ const getSimilarMovies = (movieId, callback) => {
     } else {
       callback(undefined, response.body.results);
     }
-  })
+  });
 }
 
 const getPopularMovies = (callback) => {
-  const url = `${TMDB_BASE_URL}/movie/popular`;
+  const url = `${TMDB_BASE_URL}/movie/top_rated`;
 
   request({url, headers, json: true}, (error, response) => {
     if (error) {
@@ -44,13 +44,9 @@ const getPopularMovies = (callback) => {
     } else if (!response?.body?.results?.length) {
       return callback('Popular movies not found', undefined);
     } else {
-      console.log(response.body.results)
       callback(undefined, response.body.results);
     }
-  })
-
-//   // https://image.tmdb.org/t/p/w500/1E5baAaEse26fej7uHcjOgEE2t2.jpg
-//   // http://image.tmdb.org/t/p/original/
+  });
 }
 
 module.exports = {

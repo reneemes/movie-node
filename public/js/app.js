@@ -1,3 +1,10 @@
+// Search Functionality
+const searchForm = document.querySelector('.search-form');
+const search = document.querySelector('.search-form__input');
+const resultsTitle = document.querySelector('.results__title');
+const resultsBox = document.querySelector('.results__wrapper');
+
+// Popular Movies Section
 const popularMoviesContainer = document.querySelector('.popular__posters');
 const wrapper = document.querySelector('.popular__posters-wrapper');
 const prevBtn = document.querySelector('.popular__prev');
@@ -13,6 +20,32 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => renderPopularMovies(data));
 });
 
+searchForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const movieTitle = search.value;
+
+  fetch(`/movies?title=${movieTitle}`)
+  .then((response) => response.json())
+  .then((data) => {
+    if (data.error) {
+      console.log(data.error);
+    } else {
+      console.log(data);
+      renderSearchResults(data);
+    }
+  });
+})
+
+function renderSearchResults(movies) {
+  resultsBox.innerHTML = '';
+
+  resultsTitle.textContent = `Movies Similar to ${movies.title}`;
+  
+  movies.results.forEach(movie => {
+    
+  })
+}
 
 function renderPopularMovies(movies) {
   popularMoviesContainer.innerHTML = '';
@@ -46,14 +79,3 @@ prevBtn?.addEventListener('click', () => {
 nextBtn?.addEventListener('click', () => {
   wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 });
-
-
-// fetch(`/movies?title=shrek`)
-//   .then((response) => response.json())
-//   .then((data) => {
-//     if (data.error) {
-//       // display error
-//     } else {
-//       // display movies
-//     }
-//   });

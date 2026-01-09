@@ -13,8 +13,71 @@
 </head>
 <body>
   {{>header}}
-  <main class="movies">
+  <main class="about">
 
+    <article class="about-info">
+      <h2>About {{title}}</h2>
+      <p>
+        This application is a Node.js and Express–powered movie discovery platform 
+        that uses The Movie Database (TMDB) API to help users find films they’ll love. 
+        By entering the title of a movie, users receive a list of similar movies based 
+        on TMDB’s recommendation data, making it easy to discover new titles related 
+        to their interests.
+      </p>
+      <p>
+        In addition to personalized recommendations, the app also showcases top-rated movies, 
+        allowing users to browse critically acclaimed films and explore popular choices. 
+        Whether users are looking for something similar to a favorite movie or simply 
+        want to see what’s highly rated, the application provides an intuitive and engaging experience.
+      </p>
+      <p>
+        This project highlights the use of server-side JavaScript, RESTful API integration, 
+        and dynamic content rendering with Express, offering both practical functionality 
+        and a clean user experience.
+      </p>
+    </article>
+
+    <article class="about-faq">
+      <h3>Frequently Asked Questions</h3>
+
+      <dl>
+        <dt>What is this application used for?</dt>
+        <dd>
+          This application helps users discover new movies by recommending titles 
+          similar to a movie they already like and by displaying top-rated movies from TMDB.
+        </dd>
+
+        <dt>How do movie recommendations work?</dt>
+        <dd>
+          When you enter a movie title, the app queries The Movie Database API and 
+          retrieves movies that are considered similar based on genre, popularity, and user ratings.
+        </dd>
+
+        <dt>Where does the movie data come from?</dt>
+        <dd>
+          All movie data, including recommendations and top-rated titles, 
+          comes from The Movie Database (TMDB) API.
+        </dd>
+
+        <dt>Do I need to create an account to use the app?</dt>
+        <dd>
+          No account or login is required. 
+          You can start searching for movies and browsing recommendations right away.
+        </dd>
+
+        <dt>What happens if my movie search returns no results?</dt>
+        <dd>If a movie title cannot be found, the app will prompt you to try another search or check your spelling.</dd>
+
+        <dt>Is this application free to use?</dt>
+        <dd>Yes, the application is free to use. It relies on publicly available data provided by TMDB.</dd>
+
+        <dt>What technologies are used in this project?</dt>
+        <dd>
+          The app is built using Node.js, Express, and the TMDB REST API. 
+          It also uses server-side rendering to dynamically display movie data.
+        </dd>
+      </dl>
+    </article>
 
   </main>
   {{>footer}}

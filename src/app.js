@@ -39,7 +39,7 @@ app.get('', (req, res) => {
 
 app.get('/movies', (req, res) => {
   const { title } = req.query;
-  
+
   if (!title) {
     return res.status(400).send({
       error: 'You must provide a movie title.'

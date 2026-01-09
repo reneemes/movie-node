@@ -4,6 +4,7 @@ $secondary-color: #163420;
 $cream-color: #f1f2ec;
 $light-green-color: #85B79D;
 $bright-red-color: #DC3B44;
+$faded-primary-color: rgba(138, 28, 35, 0.7);
 
 $font: "Roboto Condensed", sans-serif;
 
@@ -16,8 +17,16 @@ body {
   min-height: 100vh;
 }
 
-main {
+.movies {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 2.5rem;
+    color: $secondary-color;
+  }
 }
 
 .header {
@@ -79,13 +88,47 @@ main {
   }
 }
 
+.search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  &__txt {
+    font-size: 1.2rem;
+  }
+}
+
+.search-form {
+  &__input,
+  &__btn {
+    border-radius: 3px;
+    border: 2px solid $primary-color;
+    font-size: 1.25rem;
+    color: $primary-color;
+    padding: 10px;
+  }
+
+  &__btn {
+    background-color: $primary-color;
+    color: white;
+
+    &:hover {
+      background-color: $bright-red-color;
+    }
+  }
+}
+
 .popular {
-  // max-height: 30vh;
   position: relative;
   width: 100%;
 
   &__posters-wrapper {
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 
@@ -93,24 +136,27 @@ main {
     display: flex;
     gap: 16px;
   }
+  
+  &__prev,
+  &__next {
+    position: absolute;
+    top: 50%;
+    color: $bright-red-color;
+    padding: 25px;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+      color: $cream-color;
+      background-color: $faded-primary-color;
+      
+    }
+  }
+
+  &__prev { left: 0; }
+  &__next { right: 0; }
 }
 
-.popular__prev,
-.popular__next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 10;
-}
-
-.popular__prev { left: 0; }
-.popular__next { right: 0; }
 
 .movie-card {
   border-radius: 8px 8px 0 0;
@@ -135,11 +181,9 @@ main {
     margin: 0;
     padding: 10px;
     width: 200px;
-    // position: absolute;
-    // bottom: 10px;
-    // left: 10px;
-    white-space: nowrap;       // force single line
-    overflow: hidden;          // hide overflow
+
+    white-space: nowrap;
+    overflow: hidden;
     text-overflow: ellipsis;
     text-align: center;
   }
