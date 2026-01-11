@@ -22,7 +22,6 @@ const getMovieId = (title, callback) => {
 
 const getSimilarMovies = (movieId, callback) => {
   const url = `${TMDB_BASE_URL}/movie/${movieId}/similar?language=en-US&page=1`;
-  // const url = `${TMDB_BASE_URL}/movie/${movieId}/recommendations?language=en-US&page=1`;
 
   request({url, headers, json: true}, (error, response) => {
     if (error) {

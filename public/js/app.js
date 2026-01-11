@@ -3,39 +3,46 @@ const searchForm = document.querySelector('.search-form');
 const search = document.querySelector('.search-form__input');
 const resultsTitle = document.querySelector('.results__title');
 const resultsBox = document.querySelector('.results__wrapper');
+const message = document.querySelector('.results__message');
 
 // Popular Movies Section
 const popularMoviesContainer = document.querySelector('.popular__posters');
 const wrapper = document.querySelector('.popular__posters-wrapper');
 const prevBtn = document.querySelector('.popular__prev');
 const nextBtn = document.querySelector('.popular__next');
+const popularMessage = document.querySelector('.popular__message');
 
 document.addEventListener('DOMContentLoaded', () => {
-
   fetch('/movies/popular')
-    .then(response => {
-      if (!response.ok) throw new Error('Failed to fetch popular movies');
-      return response.json();
-    })
-    .then(data => renderPopularMovies(data));
+    .then(response => response.json())
+    .then((data) => {
+      if (data.error) {
+        popularMessage.textContent = data.error;
+      } else {
+        renderPopularMovies(data);
+      }
+    });
 });
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   const movieTitle = search.value;
+  message.textContent = 'Loading...';
 
   fetch(`/movies?title=${movieTitle}`)
   .then((response) => response.json())
   .then((data) => {
     if (data.error) {
-      console.log(data.error);
+      message.textContent = data.error;
+      resultsBox.innerHTML = '';
+      resultsTitle.textContent = '';
     } else {
-      console.log(data);
+      message.textContent = '';
       renderSearchResults(data);
     }
   });
-})
+});
 
 function renderSearchResults(movies) {
   resultsBox.innerHTML = '';
@@ -65,7 +72,7 @@ function renderSearchResults(movies) {
 
 function renderPopularMovies(movies) {
   popularMoviesContainer.innerHTML = '';
-  // console.log(movies);
+
   movies.forEach(movie => {
     const card = document.createElement('div');
     card.className = 'movie-card';
@@ -87,11 +94,10 @@ function renderPopularMovies(movies) {
   })
 }
 
-// Scroll buttons
-const scrollAmount = 500; // pixels per click
-prevBtn?.addEventListener('click', () => {
+const scrollAmount = 500;
+prevBtn.addEventListener('click', () => {
   wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
 });
-nextBtn?.addEventListener('click', () => {
+nextBtn.addEventListener('click', () => {
   wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 });

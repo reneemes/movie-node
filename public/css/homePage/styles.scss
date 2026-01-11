@@ -167,22 +167,44 @@ body {
   
   &__prev,
   &__next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: none;
     position: absolute;
-    top: 50%;
+    top: 55%;
+
     color: $bright-red-color;
+    transform: translateY(-55%);
+
+    width: 64px;
+    height: 64px;
     padding: 25px;
+
     cursor: pointer;
     z-index: 10;
 
     &:hover {
       color: $cream-color;
       background-color: $faded-primary-color;
-      
+    }
+
+    &:focus-visible {
+      outline: 3px solid $cream-color;
+      outline-offset: 4px;
     }
   }
 
   &__prev { left: 0; }
   &__next { right: 0; }
+
+  &__prev i,
+  &__next i {
+    line-height: 1;
+    pointer-events: none;
+  }
 }
 
 

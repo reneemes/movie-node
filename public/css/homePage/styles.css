@@ -134,9 +134,17 @@ body {
   gap: 16px;
 }
 .popular__prev, .popular__next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
   position: absolute;
-  top: 50%;
+  top: 55%;
   color: #DC3B44;
+  transform: translateY(-55%);
+  width: 64px;
+  height: 64px;
   padding: 25px;
   cursor: pointer;
   z-index: 10;
@@ -145,11 +153,19 @@ body {
   color: #f1f2ec;
   background-color: rgba(138, 28, 35, 0.7);
 }
+.popular__prev:focus-visible, .popular__next:focus-visible {
+  outline: 3px solid #f1f2ec;
+  outline-offset: 4px;
+}
 .popular__prev {
   left: 0;
 }
 .popular__next {
   right: 0;
+}
+.popular__prev i, .popular__next i {
+  line-height: 1;
+  pointer-events: none;
 }
 
 .movie-card {

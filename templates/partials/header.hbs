@@ -1,11 +1,11 @@
 <header class="header">
   <h1 class="header__title">{{title}}</h1>
 
-  <nav class="header__nav">
-    <a href="/" class="{{isActive activePage '/'}}">
+  <nav class="header__nav" aria-label="Main navigation">
+    <a href="/" class="{{isActive activePage '/'}}" aria-current="{{isActive activePage '/' ? 'page' : undefined}}">
       Movies
     </a>
-    <a href="/about" class="{{isActive activePage '/about'}}">
+    <a href="/about" class="{{isActive activePage '/about'}}" aria-current="{{isActive activePage '/about' ? 'page' : undefined}}">
       About
     </a>
   </nav>

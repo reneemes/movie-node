@@ -18,8 +18,8 @@
     <h2 class="movies__title">Welcome to {{title}}</h2>
 
     <section class="search">
-      <h3 class="search__title">Search Movie Recommendations</h3>
-      <p class="search__txt">Enter the title of a movie to explore similar titles.</p>
+      <h3 class="search__title">Find Movie Recommendations</h3>
+      <p class="search__txt">Enter a movie title to discover similar films you might enjoy.</p>
 
       <form class="search-form" aria-label="Movie search form">
         <input
@@ -36,6 +36,7 @@
 
     <section class="results">
       <h3 class="results__title"></h3>
+      <p class="results__message">{{!-- Loading and error message here --}}</p>
       <div class="results__wrapper">
         {{!-- Display search results here --}}
       </div>
@@ -43,14 +44,19 @@
 
     <section class="popular">
       <h3 class="popular__title">Top Rated Titles</h3>
+      <p class="popular__message">{{!-- Error message here --}}</p>
 
-      <i class="fa-solid fa-circle-arrow-left fa-2xl popular__prev"></i>
+      <button class="popular__prev" aria-label="Previous movies">
+        <i class="fa-solid fa-circle-arrow-left fa-2xl" aria-hidden="true"></i>
+      </button>
       <div class="popular__posters-wrapper">
         <div class="popular__posters">
           {{!-- Populate popular movies here --}}
         </div>
       </div>
-      <i class="fa-solid fa-circle-arrow-right fa-2xl popular__next"></i>
+      <button class="popular__next" aria-label="Next movies">
+        <i class="fa-solid fa-circle-arrow-right fa-2xl" aria-hidden="true"></i>
+      </button>
     </section>
 
   </main>
