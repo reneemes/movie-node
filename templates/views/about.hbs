@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/aboutPage/about.css"/>
+  <link rel="icon" href="/img/icon.png">
+  <script src="https://kit.fontawesome.com/fdf00391bb.js" crossorigin="anonymous"></script>
+  <title>About</title>
+</head>
+<body>
+  {{>header}}
+  <main class="about">
+
+    <article class="about-info">
+      <h2 class="about-info__title">About {{title}}</h2>
+      <p>
+        This application is a Node.js and Express–powered movie discovery platform 
+        that uses The Movie Database (TMDB) API to help users find films they’ll love. 
+        By entering the title of a movie, users receive a list of similar movies based 
+        on TMDB’s recommendation data, making it easy to discover new titles related 
+        to their interests.
+      </p>
+      <p>
+        In addition to personalized recommendations, the app also showcases top-rated movies, 
+        allowing users to browse critically acclaimed films and explore popular choices. 
+        Whether users are looking for something similar to a favorite movie or simply 
+        want to see what’s highly rated, the application provides an intuitive and engaging experience.
+      </p>
+      <p>
+        This project highlights the use of server-side JavaScript, RESTful API integration, 
+        and dynamic content rendering with Express, offering both practical functionality 
+        and a clean user experience.
+      </p>
+    </article>
+
+    <article class="about-faq">
+      <h3 class="about-faq__title">Frequently Asked Questions</h3>
+
+      <dl>
+        <dt class="about-faq__question">What is this application used for?</dt>
+        <dd class="about-faq__body">
+          This application helps users discover new movies by recommending titles 
+          similar to a movie they already like and by displaying top-rated movies from TMDB.
+        </dd>
+
+        <dt class="about-faq__question">How do movie recommendations work?</dt>
+        <dd class="about-faq__body">
+          When you enter a movie title, the app queries The Movie Database API and 
+          retrieves movies that are considered similar based on genre, popularity, and user ratings.
+        </dd>
+
+        <dt class="about-faq__question">Where does the movie data come from?</dt>
+        <dd class="about-faq__body">
+          All movie data, including recommendations and top-rated titles, 
+          comes from The Movie Database (TMDB) API.
+        </dd>
+
+        <dt class="about-faq__question">Do I need to create an account to use the app?</dt>
+        <dd class="about-faq__body">
+          No account or login is required. 
+          You can start searching for movies and browsing recommendations right away.
+        </dd>
+
+        <dt class="about-faq__question">What happens if my movie search returns no results?</dt>
+        <dd  class="about-faq__body">
+          If a movie title cannot be found, the app will prompt you to try another search or check your spelling.
+        </dd>
+
+        <dt class="about-faq__question">Is this application free to use?</dt>
+        <dd class="about-faq__body">
+          Yes, the application is free to use. It relies on publicly available data provided by TMDB.
+        </dd>
+
+        <dt class="about-faq__question">What technologies are used in this project?</dt>
+        <dd class="about-faq__body">
+          The app is built using Node.js, Express, and the TMDB REST API. 
+          It also uses server-side rendering to dynamically display movie data.
+        </dd>
+      </dl>
+    </article>
+
+  </main>
+  {{>footer}}
+  {{!-- <script src="/js/app.js"></script> --}}
+</body>
+</html>

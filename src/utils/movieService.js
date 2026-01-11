@@ -32,10 +32,25 @@ const getSimilarMovies = (movieId, callback) => {
     } else {
       callback(undefined, response.body.results);
     }
-  })
+  });
+}
+
+const getPopularMovies = (callback) => {
+  const url = `${TMDB_BASE_URL}/movie/top_rated`;
+
+  request({url, headers, json: true}, (error, response) => {
+    if (error) {
+      return callback('Unable to connect to TMDB', undefined);
+    } else if (!response?.body?.results?.length) {
+      return callback('Popular movies not found', undefined);
+    } else {
+      callback(undefined, response.body.results);
+    }
+  });
 }
 
 module.exports = {
   getMovieId,
-  getSimilarMovies
+  getSimilarMovies,
+  getPopularMovies
 };
